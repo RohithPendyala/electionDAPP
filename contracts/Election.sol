@@ -17,6 +17,11 @@ contract Election {
 	// Store Candidates count 
 	uint public candidatesCount;
 
+	//voted event
+	event votedEvent(
+		uint indexed _candidateId
+	);
+
 	//string public candidate; // candidate ia a state variable. By default it has a getter() function.
 	// Constructor
 	//function Election() public {
@@ -43,6 +48,9 @@ contract Election {
 
 		// update candidate vote count
 		candidates[_candidateId].voteCount ++;
+
+		//trigger voted event
+		votedEvent(_candidateId);
 	}
 
 
